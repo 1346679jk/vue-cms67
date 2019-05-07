@@ -1,0 +1,19 @@
+/* .mint-swipe {
+  height: 200px;
+}
+
+.mint-swipe-item {
+  text-align: center;
+}
+
+.mint-swipe-item img {
+  height: 100%;
+  width: 100%;
+} */
+body {
+  background-color: #fff !important;
+}
+
+li {
+  list-style: none;
+}

@@ -1,7 +1,11 @@
 <template>
   <!-- 头部 -->
   <div id="app" class="app-container">
-    <mt-header fixed title="黑马程序员·Vue项目"></mt-header>
+    <mt-header fixed title="黑马程序员·Vue项目">
+      <span slot="left" @click="goBack" v-show="flag">
+        <mt-button icon="back">返回</mt-button>
+      </span>
+    </mt-header>
     <!-- 中间 -->
     <router-view/>
     <!-- 底部 -->
@@ -30,7 +34,26 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      flag: false
+    }
+  },
+  methods: {
+    goBack() {
+      this.$router.go(-1)
+    }
+  },
+  watch: {
+    '$route.path': function(newVal) {
+      if (newVal === '/home') {
+        this.flag = false
+      } else {
+        this.flag = true
+      }
+    }
+  }
 }
 </script>
 
